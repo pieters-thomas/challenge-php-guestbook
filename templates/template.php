@@ -31,7 +31,7 @@ $file = ''; ?>
             </div>
             <div class="form-group col-md-6">
                 <label for="street">Message:</label>
-                <input type="text" name="message" id="message" class="form-control">
+                <input type="text" name="content" id="content" class="form-control">
             </div>
 
         </fieldset>
