@@ -4,43 +4,58 @@ use JetBrains\PhpStorm\Pure;
 
 class Post
 {
+
     private string $title;
     private string $name;
     private string $content;
     private string $time;
 
-
-
     public function __construct(?array $input)
     {
-
+        $this->title = $input['title'];
+        $this->name = $input['name'];
+        $this->content = $input['content'];
+        $this->time = $input['time'];
 
     }
 
-    public function getTitle(): string
+    //TODO Improve visual stylings of how posts are represented
+
+
+    private function printTitle (): void
     {
-        return $this->title;
+        echo "<div class=postTitle><h3>".$this->title."</h3></div>";
     }
-
-    public function getName(): string
+    private function printTime (): void
     {
-        return $this->name;
+        echo "<div class=postTime>".$this->time."</div>";
     }
-
-    public function getContent(): string
+    private function printContent (): void
     {
-        return $this->content;
+        echo "<div class=postContent>".$this->content."</div>";
     }
-
-    public function getTime(): string
+    private function printName (): void
     {
-        return $this->time;
+        echo "<div class=postName><i>Sincerely ". $this->name ."</i></div>";
     }
-
 
     public function printPost(): void
     {
-        echo 'this is going to be a post';
+        $html=
+            "<div class='postBlock royal'>".
+            "<div class='royal'>
+            </div>".
+            " <div class='royal'>".
+            $this->printTitle().
+            "<div>".
+            $this->printContent().
+            $this->printName().
+            "</div class='royal'>".
+            $this->printTime()
+            ."</div>
+            </div>";
+
+        echo $html;
     }
 
 }
